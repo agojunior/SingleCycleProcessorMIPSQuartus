@@ -1,0 +1,113 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'Temp:t1|cont[25]'
+Slack : -130.443
+TNS   : -25033.093
+
+Type  : Slow 1200mV 85C Model Setup 'ProgramCounter:bPC|PCValue[0]'
+Slack : -123.820
+TNS   : -863.120
+
+Type  : Slow 1200mV 85C Model Setup 'clockIn'
+Slack : -2.319
+TNS   : -35.132
+
+Type  : Slow 1200mV 85C Model Hold 'Temp:t1|cont[25]'
+Slack : -1.050
+TNS   : -7.021
+
+Type  : Slow 1200mV 85C Model Hold 'ProgramCounter:bPC|PCValue[0]'
+Slack : -0.661
+TNS   : -0.661
+
+Type  : Slow 1200mV 85C Model Hold 'clockIn'
+Slack : 0.409
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clockIn'
+Slack : -3.000
+TNS   : -36.410
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Temp:t1|cont[25]'
+Slack : -1.285
+TNS   : -255.715
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ProgramCounter:bPC|PCValue[0]'
+Slack : 0.094
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'Temp:t1|cont[25]'
+Slack : -117.817
+TNS   : -22602.166
+
+Type  : Slow 1200mV 0C Model Setup 'ProgramCounter:bPC|PCValue[0]'
+Slack : -111.828
+TNS   : -779.447
+
+Type  : Slow 1200mV 0C Model Setup 'clockIn'
+Slack : -1.944
+TNS   : -28.771
+
+Type  : Slow 1200mV 0C Model Hold 'Temp:t1|cont[25]'
+Slack : -0.941
+TNS   : -6.027
+
+Type  : Slow 1200mV 0C Model Hold 'ProgramCounter:bPC|PCValue[0]'
+Slack : -0.558
+TNS   : -0.558
+
+Type  : Slow 1200mV 0C Model Hold 'clockIn'
+Slack : 0.367
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clockIn'
+Slack : -3.000
+TNS   : -36.410
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Temp:t1|cont[25]'
+Slack : -1.285
+TNS   : -255.715
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ProgramCounter:bPC|PCValue[0]'
+Slack : 0.106
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'Temp:t1|cont[25]'
+Slack : -64.318
+TNS   : -12305.210
+
+Type  : Fast 1200mV 0C Model Setup 'ProgramCounter:bPC|PCValue[0]'
+Slack : -60.855
+TNS   : -423.903
+
+Type  : Fast 1200mV 0C Model Setup 'clockIn'
+Slack : -0.827
+TNS   : -5.109
+
+Type  : Fast 1200mV 0C Model Hold 'Temp:t1|cont[25]'
+Slack : -0.684
+TNS   : -6.286
+
+Type  : Fast 1200mV 0C Model Hold 'ProgramCounter:bPC|PCValue[0]'
+Slack : -0.433
+TNS   : -0.681
+
+Type  : Fast 1200mV 0C Model Hold 'clockIn'
+Slack : 0.191
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clockIn'
+Slack : -3.000
+TNS   : -30.780
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Temp:t1|cont[25]'
+Slack : -1.000
+TNS   : -199.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ProgramCounter:bPC|PCValue[0]'
+Slack : 0.175
+TNS   : 0.000
+
+------------------------------------------------------------

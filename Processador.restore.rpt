@@ -1,0 +1,125 @@
+Restore Archived Project report for Processador
+Wed Jul 04 23:16:25 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Wed Jul 04 23:16:25 2018 ;
+; Revision Name                   ; Processador                           ;
+; Top-level Entity Name           ; Processador                           ;
+; Family                          ; Cyclone IV E                          ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3.qar' into the 'D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/' directory
+Info: Generated report 'Processador.restore.rpt'
+Info (23030): Evaluation of Tcl script c:/intelfpga_lite/17.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4868 megabytes
+    Info: Processing ended: Wed Jul 04 23:16:25 2018
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+
++----------------------------+
+; Files Restored             ;
++----------------------------+
+; File Name                  ;
++----------------------------+
+; qar_info.json              ;
+; BCD.v                      ;
+; Banco.v                    ;
+; BranchControl.v            ;
+; Control.v                  ;
+; DisplayF.v                 ;
+; Extender.v                 ;
+; Extender14.v               ;
+; InOut.v                    ;
+; Instructions.v             ;
+; MUX.v                      ;
+; OutValue.v                 ;
+; Processador.qpf            ;
+; Processador.qsf            ;
+; Processador.v              ;
+; ProgramCounter.v           ;
+; RAM.v                      ;
+; Temp.v                     ;
+; Waveform.vwf               ;
+; Waveform34.vwf             ;
+; Waveform35.vwf             ;
+; Waveform36.vwf             ;
+; Waveform37.vwf             ;
+; Waveform38.vwf             ;
+; Waveform39.vwf             ;
+; Waveform40.vwf             ;
+; Waveform41.vwf             ;
+; Waveform42.vwf             ;
+; Waveform43.vwf             ;
+; Waveform44.vwf             ;
+; Waveform45.vwf             ;
+; Waveform46.vwf             ;
+; Waveform47.vwf             ;
+; Waveform48.vwf             ;
+; Waveform49.vwf             ;
+; Waveform50.vwf             ;
+; Waveform51.vwf             ;
+; Waveform52.vwf             ;
+; Waveform53.vwf             ;
+; Waveform54.vwf             ;
+; Waveform55.vwf             ;
+; Waveform56.vwf             ;
+; Waveform57.vwf             ;
+; Waveform58.vwf             ;
+; Waveform59.vwf             ;
+; Waveform60.vwf             ;
+; assignment_defaults.qdf    ;
+; output_files/Waveform.vwf  ;
+; output_files/Waveform1.vwf ;
+; output_files/Waveform2.vwf ;
+; output_files/Waveform3.vwf ;
+; ula.v                      ;
++----------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

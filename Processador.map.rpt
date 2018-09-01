@@ -1,0 +1,1630 @@
+Analysis & Synthesis report for Processador
+Wed Jul 04 23:18:09 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Temp:t1
+ 15. Parameter Settings for Inferred Entity Instance: ula:balu|lpm_mult:Mult0
+ 16. Parameter Settings for Inferred Entity Instance: ula:balu|lpm_divide:Div0
+ 17. Parameter Settings for Inferred Entity Instance: ula:balu|lpm_divide:Mod0
+ 18. lpm_mult Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "InOut:bIO|BCD:bBCD"
+ 20. Port Connectivity Checks: "InOut:bIO|BCD:bBCD2"
+ 21. Port Connectivity Checks: "BranchControl:bBC"
+ 22. Port Connectivity Checks: "RAM:bRAM"
+ 23. Port Connectivity Checks: "MUX:mWrite"
+ 24. Port Connectivity Checks: "MUX:mAlu"
+ 25. Port Connectivity Checks: "MUX:mR"
+ 26. Port Connectivity Checks: "Banco:bb"
+ 27. Port Connectivity Checks: "Control:bc"
+ 28. Post-Synthesis Netlist Statistics for Top Partition
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
+ 31. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Jul 04 23:18:09 2018       ;
+; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                      ; Processador                                 ;
+; Top-level Entity Name              ; Processador                                 ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 3,649                                       ;
+;     Total combinational functions  ; 3,489                                       ;
+;     Dedicated logic registers      ; 225                                         ;
+; Total registers                    ; 225                                         ;
+; Total pins                         ; 46                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 6                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; Processador        ; Processador        ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                              ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                                        ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.5%      ;
+;     Processor 3            ;   0.4%      ;
+;     Processor 4            ;   0.4%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                            ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------+
+; ula.v                            ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ula.v                      ;         ;
+; RAM.v                            ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/RAM.v                      ;         ;
+; ProgramCounter.v                 ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ProgramCounter.v           ;         ;
+; Processador.v                    ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v              ;         ;
+; MUX.v                            ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/MUX.v                      ;         ;
+; Instructions.v                   ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Instructions.v             ;         ;
+; Extender.v                       ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Extender.v                 ;         ;
+; Control.v                        ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Control.v                  ;         ;
+; BranchControl.v                  ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/BranchControl.v            ;         ;
+; Banco.v                          ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Banco.v                    ;         ;
+; InOut.v                          ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v                    ;         ;
+; BCD.v                            ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/BCD.v                      ;         ;
+; DisplayF.v                       ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/DisplayF.v                 ;         ;
+; Temp.v                           ; yes             ; User Verilog HDL File        ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Temp.v                     ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_mult.tdf                                                                     ;         ;
+; aglobal171.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc                                                                   ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                                                  ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/multcore.inc                                                                     ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/bypassff.inc                                                                     ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/altshift.inc                                                                     ;         ;
+; db/mult_7dt.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/mult_7dt.tdf            ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf                                                                   ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc                                                                  ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                                              ;         ;
+; db/lpm_divide_hkm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/lpm_divide_hkm.tdf      ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/sign_div_unsign_9nh.tdf ;         ;
+; db/alt_u_div_6af.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/alt_u_div_6af.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/add_sub_8pc.tdf         ;         ;
+; db/lpm_divide_kcm.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/lpm_divide_kcm.tdf      ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                    ;
++---------------------------------------------+------------------+
+; Resource                                    ; Usage            ;
++---------------------------------------------+------------------+
+; Estimated Total logic elements              ; 3,649            ;
+;                                             ;                  ;
+; Total combinational functions               ; 3489             ;
+; Logic element usage by number of LUT inputs ;                  ;
+;     -- 4 input functions                    ; 1951             ;
+;     -- 3 input functions                    ; 1397             ;
+;     -- <=2 input functions                  ; 141              ;
+;                                             ;                  ;
+; Logic elements by mode                      ;                  ;
+;     -- normal mode                          ; 2310             ;
+;     -- arithmetic mode                      ; 1179             ;
+;                                             ;                  ;
+; Total registers                             ; 225              ;
+;     -- Dedicated logic registers            ; 225              ;
+;     -- I/O registers                        ; 0                ;
+;                                             ;                  ;
+; I/O pins                                    ; 46               ;
+;                                             ;                  ;
+; Embedded Multiplier 9-bit elements          ; 6                ;
+;                                             ;                  ;
+; Maximum fan-out node                        ; Temp:t1|cont[25] ;
+; Maximum fan-out                             ; 200              ;
+; Total fan-out                               ; 13003            ;
+; Average fan-out                             ; 3.41             ;
++---------------------------------------------+------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                     ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                         ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |Processador                              ; 3489 (0)            ; 225 (0)                   ; 0           ; 6            ; 0       ; 3         ; 46   ; 0            ; |Processador                                                                                                                                ; Processador         ; work         ;
+;    |Banco:bb|                             ; 231 (231)           ; 192 (192)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|Banco:bb                                                                                                                       ; Banco               ; work         ;
+;    |BranchControl:bBC|                    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|BranchControl:bBC                                                                                                              ; BranchControl       ; work         ;
+;    |Control:bc|                           ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|Control:bc                                                                                                                     ; Control             ; work         ;
+;    |InOut:bIO|                            ; 80 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|InOut:bIO                                                                                                                      ; InOut               ; work         ;
+;       |BCD:bBCD2|                         ; 14 (14)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|InOut:bIO|BCD:bBCD2                                                                                                            ; BCD                 ; work         ;
+;       |BCD:bBCD|                          ; 24 (24)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|InOut:bIO|BCD:bBCD                                                                                                             ; BCD                 ; work         ;
+;       |DisplayF:vD1|                      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|InOut:bIO|DisplayF:vD1                                                                                                         ; DisplayF            ; work         ;
+;       |DisplayF:vD2|                      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|InOut:bIO|DisplayF:vD2                                                                                                         ; DisplayF            ; work         ;
+;       |DisplayF:vD3|                      ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|InOut:bIO|DisplayF:vD3                                                                                                         ; DisplayF            ; work         ;
+;       |DisplayF:vD4|                      ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|InOut:bIO|DisplayF:vD4                                                                                                         ; DisplayF            ; work         ;
+;    |Instructions:bi|                      ; 21 (21)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|Instructions:bi                                                                                                                ; Instructions        ; work         ;
+;    |MUX:mAlu|                             ; 63 (63)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|MUX:mAlu                                                                                                                       ; MUX                 ; work         ;
+;    |MUX:mWrite|                           ; 32 (32)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|MUX:mWrite                                                                                                                     ; MUX                 ; work         ;
+;    |ProgramCounter:bPC|                   ; 40 (40)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|ProgramCounter:bPC                                                                                                             ; ProgramCounter      ; work         ;
+;    |Temp:t1|                              ; 26 (26)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|Temp:t1                                                                                                                        ; Temp                ; work         ;
+;    |ula:balu|                             ; 2971 (962)          ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |Processador|ula:balu                                                                                                                       ; ula                 ; work         ;
+;       |lpm_divide:Div0|                   ; 922 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|ula:balu|lpm_divide:Div0                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_hkm:auto_generated|  ; 922 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|ula:balu|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                                         ; lpm_divide_hkm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 922 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|ula:balu|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_6af:divider|    ; 922 (922)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|ula:balu|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
+;       |lpm_divide:Mod0|                   ; 1059 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|ula:balu|lpm_divide:Mod0                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_kcm:auto_generated|  ; 1059 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|ula:balu|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                                         ; lpm_divide_kcm      ; work         ;
+;             |sign_div_unsign_9nh:divider| ; 1059 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|ula:balu|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                                             ; sign_div_unsign_9nh ; work         ;
+;                |alt_u_div_6af:divider|    ; 1059 (1057)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|ula:balu|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                       ; alt_u_div_6af       ; work         ;
+;                   |add_sub_7pc:add_sub_0| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|ula:balu|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_7pc:add_sub_0 ; add_sub_7pc         ; work         ;
+;                   |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Processador|ula:balu|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc         ; work         ;
+;       |lpm_mult:Mult0|                    ; 28 (0)              ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |Processador|ula:balu|lpm_mult:Mult0                                                                                                        ; lpm_mult            ; work         ;
+;          |mult_7dt:auto_generated|        ; 28 (28)             ; 0 (0)                     ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |Processador|ula:balu|lpm_mult:Mult0|mult_7dt:auto_generated                                                                                ; mult_7dt            ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 3           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 6           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 3           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; InOut:bIO|Data[6]                                  ; InOut:bIO|Data[8]   ; yes                    ;
+; InOut:bIO|Data[5]                                  ; InOut:bIO|Data[8]   ; yes                    ;
+; InOut:bIO|Data[4]                                  ; InOut:bIO|Data[8]   ; yes                    ;
+; InOut:bIO|Data[3]                                  ; InOut:bIO|Data[8]   ; yes                    ;
+; InOut:bIO|Data[2]                                  ; InOut:bIO|Data[8]   ; yes                    ;
+; InOut:bIO|Data[1]                                  ; InOut:bIO|Data[8]   ; yes                    ;
+; InOut:bIO|Data[0]                                  ; InOut:bIO|Data[8]   ; yes                    ;
+; Number of user-specified and inferred latches = 7  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; Banco:bb|regs~256                       ; Lost fanout                                 ;
+; Banco:bb|regs~257                       ; Lost fanout                                 ;
+; Banco:bb|regs~258                       ; Lost fanout                                 ;
+; Banco:bb|regs~259                       ; Lost fanout                                 ;
+; Banco:bb|regs~260                       ; Lost fanout                                 ;
+; Banco:bb|regs~261                       ; Lost fanout                                 ;
+; Banco:bb|regs~262                       ; Lost fanout                                 ;
+; Banco:bb|regs~263                       ; Lost fanout                                 ;
+; Banco:bb|regs~264                       ; Lost fanout                                 ;
+; Banco:bb|regs~265                       ; Lost fanout                                 ;
+; Banco:bb|regs~266                       ; Lost fanout                                 ;
+; Banco:bb|regs~267                       ; Lost fanout                                 ;
+; Banco:bb|regs~268                       ; Lost fanout                                 ;
+; Banco:bb|regs~269                       ; Lost fanout                                 ;
+; Banco:bb|regs~270                       ; Lost fanout                                 ;
+; Banco:bb|regs~271                       ; Lost fanout                                 ;
+; Banco:bb|regs~272                       ; Lost fanout                                 ;
+; Banco:bb|regs~273                       ; Lost fanout                                 ;
+; Banco:bb|regs~274                       ; Lost fanout                                 ;
+; Banco:bb|regs~275                       ; Lost fanout                                 ;
+; Banco:bb|regs~276                       ; Lost fanout                                 ;
+; Banco:bb|regs~277                       ; Lost fanout                                 ;
+; Banco:bb|regs~278                       ; Lost fanout                                 ;
+; Banco:bb|regs~279                       ; Lost fanout                                 ;
+; Banco:bb|regs~280                       ; Lost fanout                                 ;
+; Banco:bb|regs~281                       ; Lost fanout                                 ;
+; Banco:bb|regs~282                       ; Lost fanout                                 ;
+; Banco:bb|regs~283                       ; Lost fanout                                 ;
+; Banco:bb|regs~284                       ; Lost fanout                                 ;
+; Banco:bb|regs~285                       ; Lost fanout                                 ;
+; Banco:bb|regs~286                       ; Lost fanout                                 ;
+; Banco:bb|regs~287                       ; Lost fanout                                 ;
+; Banco:bb|regs~288                       ; Lost fanout                                 ;
+; Banco:bb|regs~289                       ; Lost fanout                                 ;
+; Banco:bb|regs~290                       ; Lost fanout                                 ;
+; Banco:bb|regs~291                       ; Lost fanout                                 ;
+; Banco:bb|regs~292                       ; Lost fanout                                 ;
+; Banco:bb|regs~293                       ; Lost fanout                                 ;
+; Banco:bb|regs~294                       ; Lost fanout                                 ;
+; Banco:bb|regs~295                       ; Lost fanout                                 ;
+; Banco:bb|regs~296                       ; Lost fanout                                 ;
+; Banco:bb|regs~297                       ; Lost fanout                                 ;
+; Banco:bb|regs~298                       ; Lost fanout                                 ;
+; Banco:bb|regs~299                       ; Lost fanout                                 ;
+; Banco:bb|regs~300                       ; Lost fanout                                 ;
+; Banco:bb|regs~301                       ; Lost fanout                                 ;
+; Banco:bb|regs~302                       ; Lost fanout                                 ;
+; Banco:bb|regs~303                       ; Lost fanout                                 ;
+; Banco:bb|regs~304                       ; Lost fanout                                 ;
+; Banco:bb|regs~305                       ; Lost fanout                                 ;
+; Banco:bb|regs~306                       ; Lost fanout                                 ;
+; Banco:bb|regs~307                       ; Lost fanout                                 ;
+; Banco:bb|regs~308                       ; Lost fanout                                 ;
+; Banco:bb|regs~309                       ; Lost fanout                                 ;
+; Banco:bb|regs~310                       ; Lost fanout                                 ;
+; Banco:bb|regs~311                       ; Lost fanout                                 ;
+; Banco:bb|regs~312                       ; Lost fanout                                 ;
+; Banco:bb|regs~313                       ; Lost fanout                                 ;
+; Banco:bb|regs~314                       ; Lost fanout                                 ;
+; Banco:bb|regs~315                       ; Lost fanout                                 ;
+; Banco:bb|regs~316                       ; Lost fanout                                 ;
+; Banco:bb|regs~317                       ; Lost fanout                                 ;
+; Banco:bb|regs~318                       ; Lost fanout                                 ;
+; Banco:bb|regs~319                       ; Lost fanout                                 ;
+; Banco:bb|regs~320                       ; Lost fanout                                 ;
+; Banco:bb|regs~321                       ; Lost fanout                                 ;
+; Banco:bb|regs~322                       ; Lost fanout                                 ;
+; Banco:bb|regs~323                       ; Lost fanout                                 ;
+; Banco:bb|regs~324                       ; Lost fanout                                 ;
+; Banco:bb|regs~325                       ; Lost fanout                                 ;
+; Banco:bb|regs~326                       ; Lost fanout                                 ;
+; Banco:bb|regs~327                       ; Lost fanout                                 ;
+; Banco:bb|regs~328                       ; Lost fanout                                 ;
+; Banco:bb|regs~329                       ; Lost fanout                                 ;
+; Banco:bb|regs~330                       ; Lost fanout                                 ;
+; Banco:bb|regs~331                       ; Lost fanout                                 ;
+; Banco:bb|regs~332                       ; Lost fanout                                 ;
+; Banco:bb|regs~333                       ; Lost fanout                                 ;
+; Banco:bb|regs~334                       ; Lost fanout                                 ;
+; Banco:bb|regs~335                       ; Lost fanout                                 ;
+; Banco:bb|regs~336                       ; Lost fanout                                 ;
+; Banco:bb|regs~337                       ; Lost fanout                                 ;
+; Banco:bb|regs~338                       ; Lost fanout                                 ;
+; Banco:bb|regs~339                       ; Lost fanout                                 ;
+; Banco:bb|regs~340                       ; Lost fanout                                 ;
+; Banco:bb|regs~341                       ; Lost fanout                                 ;
+; Banco:bb|regs~342                       ; Lost fanout                                 ;
+; Banco:bb|regs~343                       ; Lost fanout                                 ;
+; Banco:bb|regs~344                       ; Lost fanout                                 ;
+; Banco:bb|regs~345                       ; Lost fanout                                 ;
+; Banco:bb|regs~346                       ; Lost fanout                                 ;
+; Banco:bb|regs~347                       ; Lost fanout                                 ;
+; Banco:bb|regs~348                       ; Lost fanout                                 ;
+; Banco:bb|regs~349                       ; Lost fanout                                 ;
+; Banco:bb|regs~350                       ; Lost fanout                                 ;
+; Banco:bb|regs~351                       ; Lost fanout                                 ;
+; Banco:bb|regs~352                       ; Lost fanout                                 ;
+; Banco:bb|regs~353                       ; Lost fanout                                 ;
+; Banco:bb|regs~354                       ; Lost fanout                                 ;
+; Banco:bb|regs~355                       ; Lost fanout                                 ;
+; Banco:bb|regs~356                       ; Lost fanout                                 ;
+; Banco:bb|regs~357                       ; Lost fanout                                 ;
+; Banco:bb|regs~358                       ; Lost fanout                                 ;
+; Banco:bb|regs~359                       ; Lost fanout                                 ;
+; Banco:bb|regs~360                       ; Lost fanout                                 ;
+; Banco:bb|regs~361                       ; Lost fanout                                 ;
+; Banco:bb|regs~362                       ; Lost fanout                                 ;
+; Banco:bb|regs~363                       ; Lost fanout                                 ;
+; Banco:bb|regs~364                       ; Lost fanout                                 ;
+; Banco:bb|regs~365                       ; Lost fanout                                 ;
+; Banco:bb|regs~366                       ; Lost fanout                                 ;
+; Banco:bb|regs~367                       ; Lost fanout                                 ;
+; Banco:bb|regs~368                       ; Lost fanout                                 ;
+; Banco:bb|regs~369                       ; Lost fanout                                 ;
+; Banco:bb|regs~370                       ; Lost fanout                                 ;
+; Banco:bb|regs~371                       ; Lost fanout                                 ;
+; Banco:bb|regs~372                       ; Lost fanout                                 ;
+; Banco:bb|regs~373                       ; Lost fanout                                 ;
+; Banco:bb|regs~374                       ; Lost fanout                                 ;
+; Banco:bb|regs~375                       ; Lost fanout                                 ;
+; Banco:bb|regs~376                       ; Lost fanout                                 ;
+; Banco:bb|regs~377                       ; Lost fanout                                 ;
+; Banco:bb|regs~378                       ; Lost fanout                                 ;
+; Banco:bb|regs~379                       ; Lost fanout                                 ;
+; Banco:bb|regs~380                       ; Lost fanout                                 ;
+; Banco:bb|regs~381                       ; Lost fanout                                 ;
+; Banco:bb|regs~382                       ; Lost fanout                                 ;
+; Banco:bb|regs~383                       ; Lost fanout                                 ;
+; Banco:bb|regs~384                       ; Lost fanout                                 ;
+; Banco:bb|regs~385                       ; Lost fanout                                 ;
+; Banco:bb|regs~386                       ; Lost fanout                                 ;
+; Banco:bb|regs~387                       ; Lost fanout                                 ;
+; Banco:bb|regs~388                       ; Lost fanout                                 ;
+; Banco:bb|regs~389                       ; Lost fanout                                 ;
+; Banco:bb|regs~390                       ; Lost fanout                                 ;
+; Banco:bb|regs~391                       ; Lost fanout                                 ;
+; Banco:bb|regs~392                       ; Lost fanout                                 ;
+; Banco:bb|regs~393                       ; Lost fanout                                 ;
+; Banco:bb|regs~394                       ; Lost fanout                                 ;
+; Banco:bb|regs~395                       ; Lost fanout                                 ;
+; Banco:bb|regs~396                       ; Lost fanout                                 ;
+; Banco:bb|regs~397                       ; Lost fanout                                 ;
+; Banco:bb|regs~398                       ; Lost fanout                                 ;
+; Banco:bb|regs~399                       ; Lost fanout                                 ;
+; Banco:bb|regs~400                       ; Lost fanout                                 ;
+; Banco:bb|regs~401                       ; Lost fanout                                 ;
+; Banco:bb|regs~402                       ; Lost fanout                                 ;
+; Banco:bb|regs~403                       ; Lost fanout                                 ;
+; Banco:bb|regs~404                       ; Lost fanout                                 ;
+; Banco:bb|regs~405                       ; Lost fanout                                 ;
+; Banco:bb|regs~406                       ; Lost fanout                                 ;
+; Banco:bb|regs~407                       ; Lost fanout                                 ;
+; Banco:bb|regs~408                       ; Lost fanout                                 ;
+; Banco:bb|regs~409                       ; Lost fanout                                 ;
+; Banco:bb|regs~410                       ; Lost fanout                                 ;
+; Banco:bb|regs~411                       ; Lost fanout                                 ;
+; Banco:bb|regs~412                       ; Lost fanout                                 ;
+; Banco:bb|regs~413                       ; Lost fanout                                 ;
+; Banco:bb|regs~414                       ; Lost fanout                                 ;
+; Banco:bb|regs~415                       ; Lost fanout                                 ;
+; Banco:bb|regs~416                       ; Lost fanout                                 ;
+; Banco:bb|regs~417                       ; Lost fanout                                 ;
+; Banco:bb|regs~418                       ; Lost fanout                                 ;
+; Banco:bb|regs~419                       ; Lost fanout                                 ;
+; Banco:bb|regs~420                       ; Lost fanout                                 ;
+; Banco:bb|regs~421                       ; Lost fanout                                 ;
+; Banco:bb|regs~422                       ; Lost fanout                                 ;
+; Banco:bb|regs~423                       ; Lost fanout                                 ;
+; Banco:bb|regs~424                       ; Lost fanout                                 ;
+; Banco:bb|regs~425                       ; Lost fanout                                 ;
+; Banco:bb|regs~426                       ; Lost fanout                                 ;
+; Banco:bb|regs~427                       ; Lost fanout                                 ;
+; Banco:bb|regs~428                       ; Lost fanout                                 ;
+; Banco:bb|regs~429                       ; Lost fanout                                 ;
+; Banco:bb|regs~430                       ; Lost fanout                                 ;
+; Banco:bb|regs~431                       ; Lost fanout                                 ;
+; Banco:bb|regs~432                       ; Lost fanout                                 ;
+; Banco:bb|regs~433                       ; Lost fanout                                 ;
+; Banco:bb|regs~434                       ; Lost fanout                                 ;
+; Banco:bb|regs~435                       ; Lost fanout                                 ;
+; Banco:bb|regs~436                       ; Lost fanout                                 ;
+; Banco:bb|regs~437                       ; Lost fanout                                 ;
+; Banco:bb|regs~438                       ; Lost fanout                                 ;
+; Banco:bb|regs~439                       ; Lost fanout                                 ;
+; Banco:bb|regs~440                       ; Lost fanout                                 ;
+; Banco:bb|regs~441                       ; Lost fanout                                 ;
+; Banco:bb|regs~442                       ; Lost fanout                                 ;
+; Banco:bb|regs~443                       ; Lost fanout                                 ;
+; Banco:bb|regs~444                       ; Lost fanout                                 ;
+; Banco:bb|regs~445                       ; Lost fanout                                 ;
+; Banco:bb|regs~446                       ; Lost fanout                                 ;
+; Banco:bb|regs~447                       ; Lost fanout                                 ;
+; Banco:bb|regs~448                       ; Lost fanout                                 ;
+; Banco:bb|regs~449                       ; Lost fanout                                 ;
+; Banco:bb|regs~450                       ; Lost fanout                                 ;
+; Banco:bb|regs~451                       ; Lost fanout                                 ;
+; Banco:bb|regs~452                       ; Lost fanout                                 ;
+; Banco:bb|regs~453                       ; Lost fanout                                 ;
+; Banco:bb|regs~454                       ; Lost fanout                                 ;
+; Banco:bb|regs~455                       ; Lost fanout                                 ;
+; Banco:bb|regs~456                       ; Lost fanout                                 ;
+; Banco:bb|regs~457                       ; Lost fanout                                 ;
+; Banco:bb|regs~458                       ; Lost fanout                                 ;
+; Banco:bb|regs~459                       ; Lost fanout                                 ;
+; Banco:bb|regs~460                       ; Lost fanout                                 ;
+; Banco:bb|regs~461                       ; Lost fanout                                 ;
+; Banco:bb|regs~462                       ; Lost fanout                                 ;
+; Banco:bb|regs~463                       ; Lost fanout                                 ;
+; Banco:bb|regs~464                       ; Lost fanout                                 ;
+; Banco:bb|regs~465                       ; Lost fanout                                 ;
+; Banco:bb|regs~466                       ; Lost fanout                                 ;
+; Banco:bb|regs~467                       ; Lost fanout                                 ;
+; Banco:bb|regs~468                       ; Lost fanout                                 ;
+; Banco:bb|regs~469                       ; Lost fanout                                 ;
+; Banco:bb|regs~470                       ; Lost fanout                                 ;
+; Banco:bb|regs~471                       ; Lost fanout                                 ;
+; Banco:bb|regs~472                       ; Lost fanout                                 ;
+; Banco:bb|regs~473                       ; Lost fanout                                 ;
+; Banco:bb|regs~474                       ; Lost fanout                                 ;
+; Banco:bb|regs~475                       ; Lost fanout                                 ;
+; Banco:bb|regs~476                       ; Lost fanout                                 ;
+; Banco:bb|regs~477                       ; Lost fanout                                 ;
+; Banco:bb|regs~478                       ; Lost fanout                                 ;
+; Banco:bb|regs~479                       ; Lost fanout                                 ;
+; Banco:bb|regs~480                       ; Lost fanout                                 ;
+; Banco:bb|regs~481                       ; Lost fanout                                 ;
+; Banco:bb|regs~482                       ; Lost fanout                                 ;
+; Banco:bb|regs~483                       ; Lost fanout                                 ;
+; Banco:bb|regs~484                       ; Lost fanout                                 ;
+; Banco:bb|regs~485                       ; Lost fanout                                 ;
+; Banco:bb|regs~486                       ; Lost fanout                                 ;
+; Banco:bb|regs~487                       ; Lost fanout                                 ;
+; Banco:bb|regs~488                       ; Lost fanout                                 ;
+; Banco:bb|regs~489                       ; Lost fanout                                 ;
+; Banco:bb|regs~490                       ; Lost fanout                                 ;
+; Banco:bb|regs~491                       ; Lost fanout                                 ;
+; Banco:bb|regs~492                       ; Lost fanout                                 ;
+; Banco:bb|regs~493                       ; Lost fanout                                 ;
+; Banco:bb|regs~494                       ; Lost fanout                                 ;
+; Banco:bb|regs~495                       ; Lost fanout                                 ;
+; Banco:bb|regs~496                       ; Lost fanout                                 ;
+; Banco:bb|regs~497                       ; Lost fanout                                 ;
+; Banco:bb|regs~498                       ; Lost fanout                                 ;
+; Banco:bb|regs~499                       ; Lost fanout                                 ;
+; Banco:bb|regs~500                       ; Lost fanout                                 ;
+; Banco:bb|regs~501                       ; Lost fanout                                 ;
+; Banco:bb|regs~502                       ; Lost fanout                                 ;
+; Banco:bb|regs~503                       ; Lost fanout                                 ;
+; Banco:bb|regs~504                       ; Lost fanout                                 ;
+; Banco:bb|regs~505                       ; Lost fanout                                 ;
+; Banco:bb|regs~506                       ; Lost fanout                                 ;
+; Banco:bb|regs~507                       ; Lost fanout                                 ;
+; Banco:bb|regs~508                       ; Lost fanout                                 ;
+; Banco:bb|regs~509                       ; Lost fanout                                 ;
+; Banco:bb|regs~510                       ; Lost fanout                                 ;
+; Banco:bb|regs~511                       ; Lost fanout                                 ;
+; Banco:bb|regs~512                       ; Lost fanout                                 ;
+; Banco:bb|regs~513                       ; Lost fanout                                 ;
+; Banco:bb|regs~514                       ; Lost fanout                                 ;
+; Banco:bb|regs~515                       ; Lost fanout                                 ;
+; Banco:bb|regs~516                       ; Lost fanout                                 ;
+; Banco:bb|regs~517                       ; Lost fanout                                 ;
+; Banco:bb|regs~518                       ; Lost fanout                                 ;
+; Banco:bb|regs~519                       ; Lost fanout                                 ;
+; Banco:bb|regs~520                       ; Lost fanout                                 ;
+; Banco:bb|regs~521                       ; Lost fanout                                 ;
+; Banco:bb|regs~522                       ; Lost fanout                                 ;
+; Banco:bb|regs~523                       ; Lost fanout                                 ;
+; Banco:bb|regs~524                       ; Lost fanout                                 ;
+; Banco:bb|regs~525                       ; Lost fanout                                 ;
+; Banco:bb|regs~526                       ; Lost fanout                                 ;
+; Banco:bb|regs~527                       ; Lost fanout                                 ;
+; Banco:bb|regs~528                       ; Lost fanout                                 ;
+; Banco:bb|regs~529                       ; Lost fanout                                 ;
+; Banco:bb|regs~530                       ; Lost fanout                                 ;
+; Banco:bb|regs~531                       ; Lost fanout                                 ;
+; Banco:bb|regs~532                       ; Lost fanout                                 ;
+; Banco:bb|regs~533                       ; Lost fanout                                 ;
+; Banco:bb|regs~534                       ; Lost fanout                                 ;
+; Banco:bb|regs~535                       ; Lost fanout                                 ;
+; Banco:bb|regs~536                       ; Lost fanout                                 ;
+; Banco:bb|regs~537                       ; Lost fanout                                 ;
+; Banco:bb|regs~538                       ; Lost fanout                                 ;
+; Banco:bb|regs~539                       ; Lost fanout                                 ;
+; Banco:bb|regs~540                       ; Lost fanout                                 ;
+; Banco:bb|regs~541                       ; Lost fanout                                 ;
+; Banco:bb|regs~542                       ; Lost fanout                                 ;
+; Banco:bb|regs~543                       ; Lost fanout                                 ;
+; Banco:bb|regs~544                       ; Lost fanout                                 ;
+; Banco:bb|regs~545                       ; Lost fanout                                 ;
+; Banco:bb|regs~546                       ; Lost fanout                                 ;
+; Banco:bb|regs~547                       ; Lost fanout                                 ;
+; Banco:bb|regs~548                       ; Lost fanout                                 ;
+; Banco:bb|regs~549                       ; Lost fanout                                 ;
+; Banco:bb|regs~550                       ; Lost fanout                                 ;
+; Banco:bb|regs~551                       ; Lost fanout                                 ;
+; Banco:bb|regs~552                       ; Lost fanout                                 ;
+; Banco:bb|regs~553                       ; Lost fanout                                 ;
+; Banco:bb|regs~554                       ; Lost fanout                                 ;
+; Banco:bb|regs~555                       ; Lost fanout                                 ;
+; Banco:bb|regs~556                       ; Lost fanout                                 ;
+; Banco:bb|regs~557                       ; Lost fanout                                 ;
+; Banco:bb|regs~558                       ; Lost fanout                                 ;
+; Banco:bb|regs~559                       ; Lost fanout                                 ;
+; Banco:bb|regs~560                       ; Lost fanout                                 ;
+; Banco:bb|regs~561                       ; Lost fanout                                 ;
+; Banco:bb|regs~562                       ; Lost fanout                                 ;
+; Banco:bb|regs~563                       ; Lost fanout                                 ;
+; Banco:bb|regs~564                       ; Lost fanout                                 ;
+; Banco:bb|regs~565                       ; Lost fanout                                 ;
+; Banco:bb|regs~566                       ; Lost fanout                                 ;
+; Banco:bb|regs~567                       ; Lost fanout                                 ;
+; Banco:bb|regs~568                       ; Lost fanout                                 ;
+; Banco:bb|regs~569                       ; Lost fanout                                 ;
+; Banco:bb|regs~570                       ; Lost fanout                                 ;
+; Banco:bb|regs~571                       ; Lost fanout                                 ;
+; Banco:bb|regs~572                       ; Lost fanout                                 ;
+; Banco:bb|regs~573                       ; Lost fanout                                 ;
+; Banco:bb|regs~574                       ; Lost fanout                                 ;
+; Banco:bb|regs~575                       ; Lost fanout                                 ;
+; Banco:bb|regs~576                       ; Lost fanout                                 ;
+; Banco:bb|regs~577                       ; Lost fanout                                 ;
+; Banco:bb|regs~578                       ; Lost fanout                                 ;
+; Banco:bb|regs~579                       ; Lost fanout                                 ;
+; Banco:bb|regs~580                       ; Lost fanout                                 ;
+; Banco:bb|regs~581                       ; Lost fanout                                 ;
+; Banco:bb|regs~582                       ; Lost fanout                                 ;
+; Banco:bb|regs~583                       ; Lost fanout                                 ;
+; Banco:bb|regs~584                       ; Lost fanout                                 ;
+; Banco:bb|regs~585                       ; Lost fanout                                 ;
+; Banco:bb|regs~586                       ; Lost fanout                                 ;
+; Banco:bb|regs~587                       ; Lost fanout                                 ;
+; Banco:bb|regs~588                       ; Lost fanout                                 ;
+; Banco:bb|regs~589                       ; Lost fanout                                 ;
+; Banco:bb|regs~590                       ; Lost fanout                                 ;
+; Banco:bb|regs~591                       ; Lost fanout                                 ;
+; Banco:bb|regs~592                       ; Lost fanout                                 ;
+; Banco:bb|regs~593                       ; Lost fanout                                 ;
+; Banco:bb|regs~594                       ; Lost fanout                                 ;
+; Banco:bb|regs~595                       ; Lost fanout                                 ;
+; Banco:bb|regs~596                       ; Lost fanout                                 ;
+; Banco:bb|regs~597                       ; Lost fanout                                 ;
+; Banco:bb|regs~598                       ; Lost fanout                                 ;
+; Banco:bb|regs~599                       ; Lost fanout                                 ;
+; Banco:bb|regs~600                       ; Lost fanout                                 ;
+; Banco:bb|regs~601                       ; Lost fanout                                 ;
+; Banco:bb|regs~602                       ; Lost fanout                                 ;
+; Banco:bb|regs~603                       ; Lost fanout                                 ;
+; Banco:bb|regs~604                       ; Lost fanout                                 ;
+; Banco:bb|regs~605                       ; Lost fanout                                 ;
+; Banco:bb|regs~606                       ; Lost fanout                                 ;
+; Banco:bb|regs~607                       ; Lost fanout                                 ;
+; Banco:bb|regs~608                       ; Lost fanout                                 ;
+; Banco:bb|regs~609                       ; Lost fanout                                 ;
+; Banco:bb|regs~610                       ; Lost fanout                                 ;
+; Banco:bb|regs~611                       ; Lost fanout                                 ;
+; Banco:bb|regs~612                       ; Lost fanout                                 ;
+; Banco:bb|regs~613                       ; Lost fanout                                 ;
+; Banco:bb|regs~614                       ; Lost fanout                                 ;
+; Banco:bb|regs~615                       ; Lost fanout                                 ;
+; Banco:bb|regs~616                       ; Lost fanout                                 ;
+; Banco:bb|regs~617                       ; Lost fanout                                 ;
+; Banco:bb|regs~618                       ; Lost fanout                                 ;
+; Banco:bb|regs~619                       ; Lost fanout                                 ;
+; Banco:bb|regs~620                       ; Lost fanout                                 ;
+; Banco:bb|regs~621                       ; Lost fanout                                 ;
+; Banco:bb|regs~622                       ; Lost fanout                                 ;
+; Banco:bb|regs~623                       ; Lost fanout                                 ;
+; Banco:bb|regs~624                       ; Lost fanout                                 ;
+; Banco:bb|regs~625                       ; Lost fanout                                 ;
+; Banco:bb|regs~626                       ; Lost fanout                                 ;
+; Banco:bb|regs~627                       ; Lost fanout                                 ;
+; Banco:bb|regs~628                       ; Lost fanout                                 ;
+; Banco:bb|regs~629                       ; Lost fanout                                 ;
+; Banco:bb|regs~630                       ; Lost fanout                                 ;
+; Banco:bb|regs~631                       ; Lost fanout                                 ;
+; Banco:bb|regs~632                       ; Lost fanout                                 ;
+; Banco:bb|regs~633                       ; Lost fanout                                 ;
+; Banco:bb|regs~634                       ; Lost fanout                                 ;
+; Banco:bb|regs~635                       ; Lost fanout                                 ;
+; Banco:bb|regs~636                       ; Lost fanout                                 ;
+; Banco:bb|regs~637                       ; Lost fanout                                 ;
+; Banco:bb|regs~638                       ; Lost fanout                                 ;
+; Banco:bb|regs~639                       ; Lost fanout                                 ;
+; Banco:bb|regs~640                       ; Lost fanout                                 ;
+; Banco:bb|regs~641                       ; Lost fanout                                 ;
+; Banco:bb|regs~642                       ; Lost fanout                                 ;
+; Banco:bb|regs~643                       ; Lost fanout                                 ;
+; Banco:bb|regs~644                       ; Lost fanout                                 ;
+; Banco:bb|regs~645                       ; Lost fanout                                 ;
+; Banco:bb|regs~646                       ; Lost fanout                                 ;
+; Banco:bb|regs~647                       ; Lost fanout                                 ;
+; Banco:bb|regs~648                       ; Lost fanout                                 ;
+; Banco:bb|regs~649                       ; Lost fanout                                 ;
+; Banco:bb|regs~650                       ; Lost fanout                                 ;
+; Banco:bb|regs~651                       ; Lost fanout                                 ;
+; Banco:bb|regs~652                       ; Lost fanout                                 ;
+; Banco:bb|regs~653                       ; Lost fanout                                 ;
+; Banco:bb|regs~654                       ; Lost fanout                                 ;
+; Banco:bb|regs~655                       ; Lost fanout                                 ;
+; Banco:bb|regs~656                       ; Lost fanout                                 ;
+; Banco:bb|regs~657                       ; Lost fanout                                 ;
+; Banco:bb|regs~658                       ; Lost fanout                                 ;
+; Banco:bb|regs~659                       ; Lost fanout                                 ;
+; Banco:bb|regs~660                       ; Lost fanout                                 ;
+; Banco:bb|regs~661                       ; Lost fanout                                 ;
+; Banco:bb|regs~662                       ; Lost fanout                                 ;
+; Banco:bb|regs~663                       ; Lost fanout                                 ;
+; Banco:bb|regs~664                       ; Lost fanout                                 ;
+; Banco:bb|regs~665                       ; Lost fanout                                 ;
+; Banco:bb|regs~666                       ; Lost fanout                                 ;
+; Banco:bb|regs~667                       ; Lost fanout                                 ;
+; Banco:bb|regs~668                       ; Lost fanout                                 ;
+; Banco:bb|regs~669                       ; Lost fanout                                 ;
+; Banco:bb|regs~670                       ; Lost fanout                                 ;
+; Banco:bb|regs~671                       ; Lost fanout                                 ;
+; Banco:bb|regs~672                       ; Lost fanout                                 ;
+; Banco:bb|regs~673                       ; Lost fanout                                 ;
+; Banco:bb|regs~674                       ; Lost fanout                                 ;
+; Banco:bb|regs~675                       ; Lost fanout                                 ;
+; Banco:bb|regs~676                       ; Lost fanout                                 ;
+; Banco:bb|regs~677                       ; Lost fanout                                 ;
+; Banco:bb|regs~678                       ; Lost fanout                                 ;
+; Banco:bb|regs~679                       ; Lost fanout                                 ;
+; Banco:bb|regs~680                       ; Lost fanout                                 ;
+; Banco:bb|regs~681                       ; Lost fanout                                 ;
+; Banco:bb|regs~682                       ; Lost fanout                                 ;
+; Banco:bb|regs~683                       ; Lost fanout                                 ;
+; Banco:bb|regs~684                       ; Lost fanout                                 ;
+; Banco:bb|regs~685                       ; Lost fanout                                 ;
+; Banco:bb|regs~686                       ; Lost fanout                                 ;
+; Banco:bb|regs~687                       ; Lost fanout                                 ;
+; Banco:bb|regs~688                       ; Lost fanout                                 ;
+; Banco:bb|regs~689                       ; Lost fanout                                 ;
+; Banco:bb|regs~690                       ; Lost fanout                                 ;
+; Banco:bb|regs~691                       ; Lost fanout                                 ;
+; Banco:bb|regs~692                       ; Lost fanout                                 ;
+; Banco:bb|regs~693                       ; Lost fanout                                 ;
+; Banco:bb|regs~694                       ; Lost fanout                                 ;
+; Banco:bb|regs~695                       ; Lost fanout                                 ;
+; Banco:bb|regs~696                       ; Lost fanout                                 ;
+; Banco:bb|regs~697                       ; Lost fanout                                 ;
+; Banco:bb|regs~698                       ; Lost fanout                                 ;
+; Banco:bb|regs~699                       ; Lost fanout                                 ;
+; Banco:bb|regs~700                       ; Lost fanout                                 ;
+; Banco:bb|regs~701                       ; Lost fanout                                 ;
+; Banco:bb|regs~702                       ; Lost fanout                                 ;
+; Banco:bb|regs~703                       ; Lost fanout                                 ;
+; Banco:bb|regs~704                       ; Lost fanout                                 ;
+; Banco:bb|regs~705                       ; Lost fanout                                 ;
+; Banco:bb|regs~706                       ; Lost fanout                                 ;
+; Banco:bb|regs~707                       ; Lost fanout                                 ;
+; Banco:bb|regs~708                       ; Lost fanout                                 ;
+; Banco:bb|regs~709                       ; Lost fanout                                 ;
+; Banco:bb|regs~710                       ; Lost fanout                                 ;
+; Banco:bb|regs~711                       ; Lost fanout                                 ;
+; Banco:bb|regs~712                       ; Lost fanout                                 ;
+; Banco:bb|regs~713                       ; Lost fanout                                 ;
+; Banco:bb|regs~714                       ; Lost fanout                                 ;
+; Banco:bb|regs~715                       ; Lost fanout                                 ;
+; Banco:bb|regs~716                       ; Lost fanout                                 ;
+; Banco:bb|regs~717                       ; Lost fanout                                 ;
+; Banco:bb|regs~718                       ; Lost fanout                                 ;
+; Banco:bb|regs~719                       ; Lost fanout                                 ;
+; Banco:bb|regs~720                       ; Lost fanout                                 ;
+; Banco:bb|regs~721                       ; Lost fanout                                 ;
+; Banco:bb|regs~722                       ; Lost fanout                                 ;
+; Banco:bb|regs~723                       ; Lost fanout                                 ;
+; Banco:bb|regs~724                       ; Lost fanout                                 ;
+; Banco:bb|regs~725                       ; Lost fanout                                 ;
+; Banco:bb|regs~726                       ; Lost fanout                                 ;
+; Banco:bb|regs~727                       ; Lost fanout                                 ;
+; Banco:bb|regs~728                       ; Lost fanout                                 ;
+; Banco:bb|regs~729                       ; Lost fanout                                 ;
+; Banco:bb|regs~730                       ; Lost fanout                                 ;
+; Banco:bb|regs~731                       ; Lost fanout                                 ;
+; Banco:bb|regs~732                       ; Lost fanout                                 ;
+; Banco:bb|regs~733                       ; Lost fanout                                 ;
+; Banco:bb|regs~734                       ; Lost fanout                                 ;
+; Banco:bb|regs~735                       ; Lost fanout                                 ;
+; Banco:bb|regs~736                       ; Lost fanout                                 ;
+; Banco:bb|regs~737                       ; Lost fanout                                 ;
+; Banco:bb|regs~738                       ; Lost fanout                                 ;
+; Banco:bb|regs~739                       ; Lost fanout                                 ;
+; Banco:bb|regs~740                       ; Lost fanout                                 ;
+; Banco:bb|regs~741                       ; Lost fanout                                 ;
+; Banco:bb|regs~742                       ; Lost fanout                                 ;
+; Banco:bb|regs~743                       ; Lost fanout                                 ;
+; Banco:bb|regs~744                       ; Lost fanout                                 ;
+; Banco:bb|regs~745                       ; Lost fanout                                 ;
+; Banco:bb|regs~746                       ; Lost fanout                                 ;
+; Banco:bb|regs~747                       ; Lost fanout                                 ;
+; Banco:bb|regs~748                       ; Lost fanout                                 ;
+; Banco:bb|regs~749                       ; Lost fanout                                 ;
+; Banco:bb|regs~750                       ; Lost fanout                                 ;
+; Banco:bb|regs~751                       ; Lost fanout                                 ;
+; Banco:bb|regs~752                       ; Lost fanout                                 ;
+; Banco:bb|regs~753                       ; Lost fanout                                 ;
+; Banco:bb|regs~754                       ; Lost fanout                                 ;
+; Banco:bb|regs~755                       ; Lost fanout                                 ;
+; Banco:bb|regs~756                       ; Lost fanout                                 ;
+; Banco:bb|regs~757                       ; Lost fanout                                 ;
+; Banco:bb|regs~758                       ; Lost fanout                                 ;
+; Banco:bb|regs~759                       ; Lost fanout                                 ;
+; Banco:bb|regs~760                       ; Lost fanout                                 ;
+; Banco:bb|regs~761                       ; Lost fanout                                 ;
+; Banco:bb|regs~762                       ; Lost fanout                                 ;
+; Banco:bb|regs~763                       ; Lost fanout                                 ;
+; Banco:bb|regs~764                       ; Lost fanout                                 ;
+; Banco:bb|regs~765                       ; Lost fanout                                 ;
+; Banco:bb|regs~766                       ; Lost fanout                                 ;
+; Banco:bb|regs~767                       ; Lost fanout                                 ;
+; Banco:bb|regs~768                       ; Lost fanout                                 ;
+; Banco:bb|regs~769                       ; Lost fanout                                 ;
+; Banco:bb|regs~770                       ; Lost fanout                                 ;
+; Banco:bb|regs~771                       ; Lost fanout                                 ;
+; Banco:bb|regs~772                       ; Lost fanout                                 ;
+; Banco:bb|regs~773                       ; Lost fanout                                 ;
+; Banco:bb|regs~774                       ; Lost fanout                                 ;
+; Banco:bb|regs~775                       ; Lost fanout                                 ;
+; Banco:bb|regs~776                       ; Lost fanout                                 ;
+; Banco:bb|regs~777                       ; Lost fanout                                 ;
+; Banco:bb|regs~778                       ; Lost fanout                                 ;
+; Banco:bb|regs~779                       ; Lost fanout                                 ;
+; Banco:bb|regs~780                       ; Lost fanout                                 ;
+; Banco:bb|regs~781                       ; Lost fanout                                 ;
+; Banco:bb|regs~782                       ; Lost fanout                                 ;
+; Banco:bb|regs~783                       ; Lost fanout                                 ;
+; Banco:bb|regs~784                       ; Lost fanout                                 ;
+; Banco:bb|regs~785                       ; Lost fanout                                 ;
+; Banco:bb|regs~786                       ; Lost fanout                                 ;
+; Banco:bb|regs~787                       ; Lost fanout                                 ;
+; Banco:bb|regs~788                       ; Lost fanout                                 ;
+; Banco:bb|regs~789                       ; Lost fanout                                 ;
+; Banco:bb|regs~790                       ; Lost fanout                                 ;
+; Banco:bb|regs~791                       ; Lost fanout                                 ;
+; Banco:bb|regs~792                       ; Lost fanout                                 ;
+; Banco:bb|regs~793                       ; Lost fanout                                 ;
+; Banco:bb|regs~794                       ; Lost fanout                                 ;
+; Banco:bb|regs~795                       ; Lost fanout                                 ;
+; Banco:bb|regs~796                       ; Lost fanout                                 ;
+; Banco:bb|regs~797                       ; Lost fanout                                 ;
+; Banco:bb|regs~798                       ; Lost fanout                                 ;
+; Banco:bb|regs~799                       ; Lost fanout                                 ;
+; Banco:bb|regs~800                       ; Lost fanout                                 ;
+; Banco:bb|regs~801                       ; Lost fanout                                 ;
+; Banco:bb|regs~802                       ; Lost fanout                                 ;
+; Banco:bb|regs~803                       ; Lost fanout                                 ;
+; Banco:bb|regs~804                       ; Lost fanout                                 ;
+; Banco:bb|regs~805                       ; Lost fanout                                 ;
+; Banco:bb|regs~806                       ; Lost fanout                                 ;
+; Banco:bb|regs~807                       ; Lost fanout                                 ;
+; Banco:bb|regs~808                       ; Lost fanout                                 ;
+; Banco:bb|regs~809                       ; Lost fanout                                 ;
+; Banco:bb|regs~810                       ; Lost fanout                                 ;
+; Banco:bb|regs~811                       ; Lost fanout                                 ;
+; Banco:bb|regs~812                       ; Lost fanout                                 ;
+; Banco:bb|regs~813                       ; Lost fanout                                 ;
+; Banco:bb|regs~814                       ; Lost fanout                                 ;
+; Banco:bb|regs~815                       ; Lost fanout                                 ;
+; Banco:bb|regs~816                       ; Lost fanout                                 ;
+; Banco:bb|regs~817                       ; Lost fanout                                 ;
+; Banco:bb|regs~818                       ; Lost fanout                                 ;
+; Banco:bb|regs~819                       ; Lost fanout                                 ;
+; Banco:bb|regs~820                       ; Lost fanout                                 ;
+; Banco:bb|regs~821                       ; Lost fanout                                 ;
+; Banco:bb|regs~822                       ; Lost fanout                                 ;
+; Banco:bb|regs~823                       ; Lost fanout                                 ;
+; Banco:bb|regs~824                       ; Lost fanout                                 ;
+; Banco:bb|regs~825                       ; Lost fanout                                 ;
+; Banco:bb|regs~826                       ; Lost fanout                                 ;
+; Banco:bb|regs~827                       ; Lost fanout                                 ;
+; Banco:bb|regs~828                       ; Lost fanout                                 ;
+; Banco:bb|regs~829                       ; Lost fanout                                 ;
+; Banco:bb|regs~830                       ; Lost fanout                                 ;
+; Banco:bb|regs~831                       ; Lost fanout                                 ;
+; Banco:bb|regs~832                       ; Lost fanout                                 ;
+; Banco:bb|regs~833                       ; Lost fanout                                 ;
+; Banco:bb|regs~834                       ; Lost fanout                                 ;
+; Banco:bb|regs~835                       ; Lost fanout                                 ;
+; Banco:bb|regs~836                       ; Lost fanout                                 ;
+; Banco:bb|regs~837                       ; Lost fanout                                 ;
+; Banco:bb|regs~838                       ; Lost fanout                                 ;
+; Banco:bb|regs~839                       ; Lost fanout                                 ;
+; Banco:bb|regs~840                       ; Lost fanout                                 ;
+; Banco:bb|regs~841                       ; Lost fanout                                 ;
+; Banco:bb|regs~842                       ; Lost fanout                                 ;
+; Banco:bb|regs~843                       ; Lost fanout                                 ;
+; Banco:bb|regs~844                       ; Lost fanout                                 ;
+; Banco:bb|regs~845                       ; Lost fanout                                 ;
+; Banco:bb|regs~846                       ; Lost fanout                                 ;
+; Banco:bb|regs~847                       ; Lost fanout                                 ;
+; Banco:bb|regs~848                       ; Lost fanout                                 ;
+; Banco:bb|regs~849                       ; Lost fanout                                 ;
+; Banco:bb|regs~850                       ; Lost fanout                                 ;
+; Banco:bb|regs~851                       ; Lost fanout                                 ;
+; Banco:bb|regs~852                       ; Lost fanout                                 ;
+; Banco:bb|regs~853                       ; Lost fanout                                 ;
+; Banco:bb|regs~854                       ; Lost fanout                                 ;
+; Banco:bb|regs~855                       ; Lost fanout                                 ;
+; Banco:bb|regs~856                       ; Lost fanout                                 ;
+; Banco:bb|regs~857                       ; Lost fanout                                 ;
+; Banco:bb|regs~858                       ; Lost fanout                                 ;
+; Banco:bb|regs~859                       ; Lost fanout                                 ;
+; Banco:bb|regs~860                       ; Lost fanout                                 ;
+; Banco:bb|regs~861                       ; Lost fanout                                 ;
+; Banco:bb|regs~862                       ; Lost fanout                                 ;
+; Banco:bb|regs~863                       ; Lost fanout                                 ;
+; Banco:bb|regs~864                       ; Lost fanout                                 ;
+; Banco:bb|regs~865                       ; Lost fanout                                 ;
+; Banco:bb|regs~866                       ; Lost fanout                                 ;
+; Banco:bb|regs~867                       ; Lost fanout                                 ;
+; Banco:bb|regs~868                       ; Lost fanout                                 ;
+; Banco:bb|regs~869                       ; Lost fanout                                 ;
+; Banco:bb|regs~870                       ; Lost fanout                                 ;
+; Banco:bb|regs~871                       ; Lost fanout                                 ;
+; Banco:bb|regs~872                       ; Lost fanout                                 ;
+; Banco:bb|regs~873                       ; Lost fanout                                 ;
+; Banco:bb|regs~874                       ; Lost fanout                                 ;
+; Banco:bb|regs~875                       ; Lost fanout                                 ;
+; Banco:bb|regs~876                       ; Lost fanout                                 ;
+; Banco:bb|regs~877                       ; Lost fanout                                 ;
+; Banco:bb|regs~878                       ; Lost fanout                                 ;
+; Banco:bb|regs~879                       ; Lost fanout                                 ;
+; Banco:bb|regs~880                       ; Lost fanout                                 ;
+; Banco:bb|regs~881                       ; Lost fanout                                 ;
+; Banco:bb|regs~882                       ; Lost fanout                                 ;
+; Banco:bb|regs~883                       ; Lost fanout                                 ;
+; Banco:bb|regs~884                       ; Lost fanout                                 ;
+; Banco:bb|regs~885                       ; Lost fanout                                 ;
+; Banco:bb|regs~886                       ; Lost fanout                                 ;
+; Banco:bb|regs~887                       ; Lost fanout                                 ;
+; Banco:bb|regs~888                       ; Lost fanout                                 ;
+; Banco:bb|regs~889                       ; Lost fanout                                 ;
+; Banco:bb|regs~890                       ; Lost fanout                                 ;
+; Banco:bb|regs~891                       ; Lost fanout                                 ;
+; Banco:bb|regs~892                       ; Lost fanout                                 ;
+; Banco:bb|regs~893                       ; Lost fanout                                 ;
+; Banco:bb|regs~894                       ; Lost fanout                                 ;
+; Banco:bb|regs~895                       ; Lost fanout                                 ;
+; Banco:bb|regs~896                       ; Lost fanout                                 ;
+; Banco:bb|regs~897                       ; Lost fanout                                 ;
+; Banco:bb|regs~898                       ; Lost fanout                                 ;
+; Banco:bb|regs~899                       ; Lost fanout                                 ;
+; Banco:bb|regs~900                       ; Lost fanout                                 ;
+; Banco:bb|regs~901                       ; Lost fanout                                 ;
+; Banco:bb|regs~902                       ; Lost fanout                                 ;
+; Banco:bb|regs~903                       ; Lost fanout                                 ;
+; Banco:bb|regs~904                       ; Lost fanout                                 ;
+; Banco:bb|regs~905                       ; Lost fanout                                 ;
+; Banco:bb|regs~906                       ; Lost fanout                                 ;
+; Banco:bb|regs~907                       ; Lost fanout                                 ;
+; Banco:bb|regs~908                       ; Lost fanout                                 ;
+; Banco:bb|regs~909                       ; Lost fanout                                 ;
+; Banco:bb|regs~910                       ; Lost fanout                                 ;
+; Banco:bb|regs~911                       ; Lost fanout                                 ;
+; Banco:bb|regs~912                       ; Lost fanout                                 ;
+; Banco:bb|regs~913                       ; Lost fanout                                 ;
+; Banco:bb|regs~914                       ; Lost fanout                                 ;
+; Banco:bb|regs~915                       ; Lost fanout                                 ;
+; Banco:bb|regs~916                       ; Lost fanout                                 ;
+; Banco:bb|regs~917                       ; Lost fanout                                 ;
+; Banco:bb|regs~918                       ; Lost fanout                                 ;
+; Banco:bb|regs~919                       ; Lost fanout                                 ;
+; Banco:bb|regs~920                       ; Lost fanout                                 ;
+; Banco:bb|regs~921                       ; Lost fanout                                 ;
+; Banco:bb|regs~922                       ; Lost fanout                                 ;
+; Banco:bb|regs~923                       ; Lost fanout                                 ;
+; Banco:bb|regs~924                       ; Lost fanout                                 ;
+; Banco:bb|regs~925                       ; Lost fanout                                 ;
+; Banco:bb|regs~926                       ; Lost fanout                                 ;
+; Banco:bb|regs~927                       ; Lost fanout                                 ;
+; Banco:bb|regs~928                       ; Lost fanout                                 ;
+; Banco:bb|regs~929                       ; Lost fanout                                 ;
+; Banco:bb|regs~930                       ; Lost fanout                                 ;
+; Banco:bb|regs~931                       ; Lost fanout                                 ;
+; Banco:bb|regs~932                       ; Lost fanout                                 ;
+; Banco:bb|regs~933                       ; Lost fanout                                 ;
+; Banco:bb|regs~934                       ; Lost fanout                                 ;
+; Banco:bb|regs~935                       ; Lost fanout                                 ;
+; Banco:bb|regs~936                       ; Lost fanout                                 ;
+; Banco:bb|regs~937                       ; Lost fanout                                 ;
+; Banco:bb|regs~938                       ; Lost fanout                                 ;
+; Banco:bb|regs~939                       ; Lost fanout                                 ;
+; Banco:bb|regs~940                       ; Lost fanout                                 ;
+; Banco:bb|regs~941                       ; Lost fanout                                 ;
+; Banco:bb|regs~942                       ; Lost fanout                                 ;
+; Banco:bb|regs~943                       ; Lost fanout                                 ;
+; Banco:bb|regs~944                       ; Lost fanout                                 ;
+; Banco:bb|regs~945                       ; Lost fanout                                 ;
+; Banco:bb|regs~946                       ; Lost fanout                                 ;
+; Banco:bb|regs~947                       ; Lost fanout                                 ;
+; Banco:bb|regs~948                       ; Lost fanout                                 ;
+; Banco:bb|regs~949                       ; Lost fanout                                 ;
+; Banco:bb|regs~950                       ; Lost fanout                                 ;
+; Banco:bb|regs~951                       ; Lost fanout                                 ;
+; Banco:bb|regs~952                       ; Lost fanout                                 ;
+; Banco:bb|regs~953                       ; Lost fanout                                 ;
+; Banco:bb|regs~954                       ; Lost fanout                                 ;
+; Banco:bb|regs~955                       ; Lost fanout                                 ;
+; Banco:bb|regs~956                       ; Lost fanout                                 ;
+; Banco:bb|regs~957                       ; Lost fanout                                 ;
+; Banco:bb|regs~958                       ; Lost fanout                                 ;
+; Banco:bb|regs~959                       ; Lost fanout                                 ;
+; Banco:bb|regs~960                       ; Lost fanout                                 ;
+; Banco:bb|regs~961                       ; Lost fanout                                 ;
+; Banco:bb|regs~962                       ; Lost fanout                                 ;
+; Banco:bb|regs~963                       ; Lost fanout                                 ;
+; Banco:bb|regs~964                       ; Lost fanout                                 ;
+; Banco:bb|regs~965                       ; Lost fanout                                 ;
+; Banco:bb|regs~966                       ; Lost fanout                                 ;
+; Banco:bb|regs~967                       ; Lost fanout                                 ;
+; Banco:bb|regs~968                       ; Lost fanout                                 ;
+; Banco:bb|regs~969                       ; Lost fanout                                 ;
+; Banco:bb|regs~970                       ; Lost fanout                                 ;
+; Banco:bb|regs~971                       ; Lost fanout                                 ;
+; Banco:bb|regs~972                       ; Lost fanout                                 ;
+; Banco:bb|regs~973                       ; Lost fanout                                 ;
+; Banco:bb|regs~974                       ; Lost fanout                                 ;
+; Banco:bb|regs~975                       ; Lost fanout                                 ;
+; Banco:bb|regs~976                       ; Lost fanout                                 ;
+; Banco:bb|regs~977                       ; Lost fanout                                 ;
+; Banco:bb|regs~978                       ; Lost fanout                                 ;
+; Banco:bb|regs~979                       ; Lost fanout                                 ;
+; Banco:bb|regs~980                       ; Lost fanout                                 ;
+; Banco:bb|regs~981                       ; Lost fanout                                 ;
+; Banco:bb|regs~982                       ; Lost fanout                                 ;
+; Banco:bb|regs~983                       ; Lost fanout                                 ;
+; Banco:bb|regs~984                       ; Lost fanout                                 ;
+; Banco:bb|regs~985                       ; Lost fanout                                 ;
+; Banco:bb|regs~986                       ; Lost fanout                                 ;
+; Banco:bb|regs~987                       ; Lost fanout                                 ;
+; Banco:bb|regs~988                       ; Lost fanout                                 ;
+; Banco:bb|regs~989                       ; Lost fanout                                 ;
+; Banco:bb|regs~990                       ; Lost fanout                                 ;
+; Banco:bb|regs~991                       ; Lost fanout                                 ;
+; Banco:bb|regs~992                       ; Lost fanout                                 ;
+; Banco:bb|regs~993                       ; Lost fanout                                 ;
+; Banco:bb|regs~994                       ; Lost fanout                                 ;
+; Banco:bb|regs~995                       ; Lost fanout                                 ;
+; Banco:bb|regs~996                       ; Lost fanout                                 ;
+; Banco:bb|regs~997                       ; Lost fanout                                 ;
+; Banco:bb|regs~998                       ; Lost fanout                                 ;
+; Banco:bb|regs~999                       ; Lost fanout                                 ;
+; Banco:bb|regs~1000                      ; Lost fanout                                 ;
+; Banco:bb|regs~1001                      ; Lost fanout                                 ;
+; Banco:bb|regs~1002                      ; Lost fanout                                 ;
+; Banco:bb|regs~1003                      ; Lost fanout                                 ;
+; Banco:bb|regs~1004                      ; Lost fanout                                 ;
+; Banco:bb|regs~1005                      ; Lost fanout                                 ;
+; Banco:bb|regs~1006                      ; Lost fanout                                 ;
+; Banco:bb|regs~1007                      ; Lost fanout                                 ;
+; Banco:bb|regs~1008                      ; Lost fanout                                 ;
+; Banco:bb|regs~1009                      ; Lost fanout                                 ;
+; Banco:bb|regs~1010                      ; Lost fanout                                 ;
+; Banco:bb|regs~1011                      ; Lost fanout                                 ;
+; Banco:bb|regs~1012                      ; Lost fanout                                 ;
+; Banco:bb|regs~1013                      ; Lost fanout                                 ;
+; Banco:bb|regs~1014                      ; Lost fanout                                 ;
+; Banco:bb|regs~1015                      ; Lost fanout                                 ;
+; Banco:bb|regs~1016                      ; Lost fanout                                 ;
+; Banco:bb|regs~1017                      ; Lost fanout                                 ;
+; Banco:bb|regs~1018                      ; Lost fanout                                 ;
+; Banco:bb|regs~1019                      ; Lost fanout                                 ;
+; Banco:bb|regs~1020                      ; Lost fanout                                 ;
+; Banco:bb|regs~1021                      ; Lost fanout                                 ;
+; Banco:bb|regs~1022                      ; Lost fanout                                 ;
+; Banco:bb|regs~1023                      ; Lost fanout                                 ;
+; Banco:bb|regs~195                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~192                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~196                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~194                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~198                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~193                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~197                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~199                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~200                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~201                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~202                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~203                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~204                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~205                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~206                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~207                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~208                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~209                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~210                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~211                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~212                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~213                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~214                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~215                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~216                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~217                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~218                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~219                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~220                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~221                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~222                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~223                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~227                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~224                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~228                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~226                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~230                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~225                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~229                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~231                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~232                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~233                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~234                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~235                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~236                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~237                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~238                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~239                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~240                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~241                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~242                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~243                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~244                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~245                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~246                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~247                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~248                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~249                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~250                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~251                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~252                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~253                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~254                       ; Stuck at GND due to stuck port clock_enable ;
+; Banco:bb|regs~255                       ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 832 ;                                             ;
++-----------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                      ;
++-------------------+--------------------------------+-----------------------------------------------------------------------------+
+; Register name     ; Reason for Removal             ; Registers Removed due to This Register                                      ;
++-------------------+--------------------------------+-----------------------------------------------------------------------------+
+; Banco:bb|regs~193 ; Stuck at GND                   ; Banco:bb|regs~200, Banco:bb|regs~201, Banco:bb|regs~207, Banco:bb|regs~214, ;
+;                   ; due to stuck port clock_enable ; Banco:bb|regs~215, Banco:bb|regs~217, Banco:bb|regs~222, Banco:bb|regs~223, ;
+;                   ;                                ; Banco:bb|regs~232, Banco:bb|regs~233, Banco:bb|regs~239, Banco:bb|regs~246, ;
+;                   ;                                ; Banco:bb|regs~247, Banco:bb|regs~249, Banco:bb|regs~254, Banco:bb|regs~255  ;
+; Banco:bb|regs~195 ; Stuck at GND                   ; Banco:bb|regs~196, Banco:bb|regs~198, Banco:bb|regs~199, Banco:bb|regs~203, ;
+;                   ; due to stuck port clock_enable ; Banco:bb|regs~228, Banco:bb|regs~230, Banco:bb|regs~231, Banco:bb|regs~235  ;
+; Banco:bb|regs~227 ; Stuck at GND                   ; Banco:bb|regs~226, Banco:bb|regs~236, Banco:bb|regs~237, Banco:bb|regs~238, ;
+;                   ; due to stuck port clock_enable ; Banco:bb|regs~241, Banco:bb|regs~242, Banco:bb|regs~250, Banco:bb|regs~251  ;
+; Banco:bb|regs~194 ; Stuck at GND                   ; Banco:bb|regs~202, Banco:bb|regs~234                                        ;
+;                   ; due to stuck port clock_enable ;                                                                             ;
+; Banco:bb|regs~225 ; Stuck at GND                   ; Banco:bb|regs~248                                                           ;
+;                   ; due to stuck port clock_enable ;                                                                             ;
++-------------------+--------------------------------+-----------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 225   ;
+; Number of registers using Synchronous Clear  ; 7     ;
+; Number of registers using Synchronous Load   ; 7     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 199   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+; 6:1                ; 11 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |Processador|ProgramCounter:bPC|PCValue[9] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Processador|InOut:bIO|BCD:bBCD|Ones[3]    ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Processador|InOut:bIO|BCD:bBCD|Tens[3]    ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Processador|InOut:bIO|BCD:bBCD2|Ones[1]   ;
+; 64:1               ; 3 bits    ; 126 LEs       ; 18 LEs               ; 108 LEs                ; No         ; |Processador|Control:bc|Selector2          ;
+; 65:1               ; 8 bits    ; 344 LEs       ; 112 LEs              ; 232 LEs                ; No         ; |Processador|ula:balu|res[18]              ;
+; 65:1               ; 8 bits    ; 344 LEs       ; 112 LEs              ; 232 LEs                ; No         ; |Processador|ula:balu|res[10]              ;
+; 66:1               ; 4 bits    ; 176 LEs       ; 64 LEs               ; 112 LEs                ; No         ; |Processador|ula:balu|res[27]              ;
+; 66:1               ; 4 bits    ; 176 LEs       ; 64 LEs               ; 112 LEs                ; No         ; |Processador|ula:balu|res[5]               ;
+; 67:1               ; 2 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; No         ; |Processador|ula:balu|res[29]              ;
+; 67:1               ; 2 bits    ; 88 LEs        ; 32 LEs               ; 56 LEs                 ; No         ; |Processador|ula:balu|res[2]               ;
+; 68:1               ; 2 bits    ; 90 LEs        ; 32 LEs               ; 58 LEs                 ; No         ; |Processador|ula:balu|res[30]              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Temp:t1 ;
++----------------+-------+-----------------------------+
+; Parameter Name ; Value ; Type                        ;
++----------------+-------+-----------------------------+
+; n              ; 25    ; Signed Integer              ;
++----------------+-------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ula:balu|lpm_mult:Mult0            ;
++------------------------------------------------+--------------+---------------------+
+; Parameter Name                                 ; Value        ; Type                ;
++------------------------------------------------+--------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 32           ; Untyped             ;
+; LPM_WIDTHB                                     ; 32           ; Untyped             ;
+; LPM_WIDTHP                                     ; 64           ; Untyped             ;
+; LPM_WIDTHR                                     ; 64           ; Untyped             ;
+; LPM_WIDTHS                                     ; 1            ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0            ; Untyped             ;
+; LATENCY                                        ; 0            ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
+; USE_EAB                                        ; OFF          ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_7dt     ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
++------------------------------------------------+--------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ula:balu|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------+
+; Parameter Name         ; Value          ; Type                            ;
++------------------------+----------------+---------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                         ;
+; LPM_WIDTHD             ; 32             ; Untyped                         ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                         ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                         ;
+; LPM_PIPELINE           ; 0              ; Untyped                         ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                         ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                         ;
+; CBXI_PARAMETER         ; lpm_divide_hkm ; Untyped                         ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                         ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                         ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                  ;
++------------------------+----------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: ula:balu|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------+
+; Parameter Name         ; Value          ; Type                            ;
++------------------------+----------------+---------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                         ;
+; LPM_WIDTHD             ; 32             ; Untyped                         ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                         ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                         ;
+; LPM_PIPELINE           ; 0              ; Untyped                         ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                         ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                         ;
+; CBXI_PARAMETER         ; lpm_divide_kcm ; Untyped                         ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                         ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                         ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                    ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                  ;
++------------------------+----------------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                  ;
++---------------------------------------+-------------------------+
+; Name                                  ; Value                   ;
++---------------------------------------+-------------------------+
+; Number of entity instances            ; 1                       ;
+; Entity Instance                       ; ula:balu|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                      ;
+;     -- LPM_WIDTHB                     ; 32                      ;
+;     -- LPM_WIDTHP                     ; 64                      ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                      ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                      ;
+;     -- USE_EAB                        ; OFF                     ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                    ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                      ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                      ;
++---------------------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "InOut:bIO|BCD:bBCD"                                                                                                                                                                ;
++--------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                           ;
++--------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; binary ; Input ; Warning  ; Input port expression (10 bits) is wider than the input port (7 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++--------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "InOut:bIO|BCD:bBCD2"                                                                                                                                                                  ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                                                           ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; binary   ; Input  ; Warning  ; Input port expression (10 bits) is wider than the input port (7 bits) it drives.  The 3 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; Hundreds ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                               ;
+; Tens     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                               ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BranchControl:bBC"                                                                                                                                                                  ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                                                             ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; IMM16 ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (16 bits) it drives.  The 16 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RAM:bRAM"                                                                                                                                                                             ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                             ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (11 bits) it drives.  The 21 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MUX:mWrite"                                                                                                                                  ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                       ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; C    ; Input ; Warning  ; Input port expression (15 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "C[31..15]" will be connected to GND. ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MUX:mAlu"                                                                                                                                    ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                       ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; C    ; Input ; Warning  ; Input port expression (26 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "C[31..26]" will be connected to GND. ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MUX:mR"                                                                                                                                    ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                     ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+; A    ; Input ; Warning  ; Input port expression (5 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "A[31..5]" will be connected to GND. ;
+; B    ; Input ; Warning  ; Input port expression (5 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "B[31..5]" will be connected to GND. ;
+; C    ; Input ; Warning  ; Input port expression (5 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "C[31..5]" will be connected to GND. ;
++------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Banco:bb"                                                                                                                                                                         ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; r3   ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (5 bits) it drives.  The 27 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Control:bc"                                                                                                                                                                ;
++-----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                                                               ;
++-----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; opcode    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                   ;
+; PCsrc     ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (2 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
+; PCsrc[-1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                   ;
++-----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 46                          ;
+; cycloneiii_ff         ; 225                         ;
+;     ENA               ; 192                         ;
+;     ENA SCLR SLD      ; 7                           ;
+;     plain             ; 26                          ;
+; cycloneiii_lcell_comb ; 3495                        ;
+;     arith             ; 1179                        ;
+;         2 data inputs ; 36                          ;
+;         3 data inputs ; 1143                        ;
+;     normal            ; 2316                        ;
+;         0 data inputs ; 59                          ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 43                          ;
+;         3 data inputs ; 254                         ;
+;         4 data inputs ; 1951                        ;
+; cycloneiii_mac_mult   ; 3                           ;
+; cycloneiii_mac_out    ; 3                           ;
+;                       ;                             ;
+; Max LUT depth         ; 134.50                      ;
+; Average LUT depth     ; 95.72                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:14     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Wed Jul 04 23:17:41 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Processador -c Processador
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file ula.v
+    Info (12023): Found entity 1: ula File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ula.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ram.v
+    Info (12023): Found entity 1: RAM File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/RAM.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file programcounter.v
+    Info (12023): Found entity 1: ProgramCounter File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ProgramCounter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file processador.v
+    Info (12023): Found entity 1: Processador File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file outvalue.v
+    Info (12023): Found entity 1: Outvalue File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/OutValue.v Line: 1
+Warning (12090): Entity "MUX" obtained from "MUX.v" instead of from Quartus Prime megafunction library File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/MUX.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux.v
+    Info (12023): Found entity 1: MUX File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/MUX.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file instructions.v
+    Info (12023): Found entity 1: Instructions File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Instructions.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file extender.v
+    Info (12023): Found entity 1: Extender File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Extender.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file control.v
+    Info (12023): Found entity 1: Control File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Control.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file branchcontrol.v
+    Info (12023): Found entity 1: BranchControl File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/BranchControl.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file banco.v
+    Info (12023): Found entity 1: Banco File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Banco.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file inout.v
+    Info (12023): Found entity 1: InOut File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bcd.v
+    Info (12023): Found entity 1: BCD File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/BCD.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file extender14.v
+    Info (12023): Found entity 1: Extender14 File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Extender14.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file displayf.v
+    Info (12023): Found entity 1: DisplayF File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/DisplayF.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file temp.v
+    Info (12023): Found entity 1: Temp File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Temp.v Line: 1
+Info (12127): Elaborating entity "Processador" for the top level hierarchy
+Info (12128): Elaborating entity "Temp" for hierarchy "Temp:t1" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 15
+Warning (10230): Verilog HDL assignment warning at Temp.v(11): truncated value with size 32 to match size of target (26) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Temp.v Line: 11
+Info (12128): Elaborating entity "Control" for hierarchy "Control:bc" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 16
+Warning (10270): Verilog HDL Case Statement warning at Control.v(37): incomplete case statement has no default case item File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Control.v Line: 37
+Info (12128): Elaborating entity "Instructions" for hierarchy "Instructions:bi" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 18
+Warning (10030): Net "ramInstrucoes.data_a" at Instructions.v(6) has no driver or initial value, using a default initial value '0' File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Instructions.v Line: 6
+Warning (10030): Net "ramInstrucoes.waddr_a" at Instructions.v(6) has no driver or initial value, using a default initial value '0' File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Instructions.v Line: 6
+Warning (10030): Net "ramInstrucoes.we_a" at Instructions.v(6) has no driver or initial value, using a default initial value '0' File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Instructions.v Line: 6
+Info (12128): Elaborating entity "Banco" for hierarchy "Banco:bb" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 20
+Info (12128): Elaborating entity "ula" for hierarchy "ula:balu" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 22
+Info (12128): Elaborating entity "MUX" for hierarchy "MUX:mR" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 24
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:bRAM" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 29
+Info (12128): Elaborating entity "Extender" for hierarchy "Extender:bExtender" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 31
+Info (12128): Elaborating entity "ProgramCounter" for hierarchy "ProgramCounter:bPC" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 33
+Warning (10230): Verilog HDL assignment warning at ProgramCounter.v(15): truncated value with size 32 to match size of target (11) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ProgramCounter.v Line: 15
+Info (12128): Elaborating entity "BranchControl" for hierarchy "BranchControl:bBC" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 35
+Warning (10230): Verilog HDL assignment warning at BranchControl.v(11): truncated value with size 32 to match size of target (11) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/BranchControl.v Line: 11
+Warning (10230): Verilog HDL assignment warning at BranchControl.v(14): truncated value with size 26 to match size of target (11) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/BranchControl.v Line: 14
+Warning (10230): Verilog HDL assignment warning at BranchControl.v(17): truncated value with size 32 to match size of target (11) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/BranchControl.v Line: 17
+Info (12128): Elaborating entity "InOut" for hierarchy "InOut:bIO" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 37
+Warning (10240): Verilog HDL Always Construct warning at InOut.v(16): inferring latch(es) for variable "Data", which holds its previous value in one or more paths through the always construct File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 16
+Info (10041): Inferred latch for "Data[0]" at InOut.v(20) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+Info (10041): Inferred latch for "Data[1]" at InOut.v(20) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+Info (10041): Inferred latch for "Data[2]" at InOut.v(20) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+Info (10041): Inferred latch for "Data[3]" at InOut.v(20) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+Info (10041): Inferred latch for "Data[4]" at InOut.v(20) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+Info (10041): Inferred latch for "Data[5]" at InOut.v(20) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+Info (10041): Inferred latch for "Data[6]" at InOut.v(20) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+Info (10041): Inferred latch for "Data[7]" at InOut.v(20) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+Info (10041): Inferred latch for "Data[8]" at InOut.v(20) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+Info (10041): Inferred latch for "Data[9]" at InOut.v(20) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+Info (12128): Elaborating entity "BCD" for hierarchy "InOut:bIO|BCD:bBCD2" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 25
+Warning (10230): Verilog HDL assignment warning at BCD.v(26): truncated value with size 32 to match size of target (4) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/BCD.v Line: 26
+Warning (10230): Verilog HDL assignment warning at BCD.v(24): truncated value with size 32 to match size of target (4) File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/BCD.v Line: 24
+Info (12128): Elaborating entity "DisplayF" for hierarchy "InOut:bIO|DisplayF:vD1" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 28
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276007): RAM logic "Banco:bb|regs" is uninferred due to asynchronous read logic File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Banco.v Line: 7
+    Info (276007): RAM logic "RAM:bRAM|ramD" is uninferred due to asynchronous read logic File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/RAM.v Line: 6
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/Processador.ram0_Instructions_ace9d50a.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (278001): Inferred 3 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "ula:balu|Mult0" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ula.v Line: 14
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "ula:balu|Div0" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ula.v Line: 18
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "ula:balu|Mod0" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ula.v Line: 16
+Info (12130): Elaborated megafunction instantiation "ula:balu|lpm_mult:Mult0" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ula.v Line: 14
+Info (12133): Instantiated megafunction "ula:balu|lpm_mult:Mult0" with the following parameter: File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ula.v Line: 14
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7dt.tdf
+    Info (12023): Found entity 1: mult_7dt File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/mult_7dt.tdf Line: 30
+Info (12130): Elaborated megafunction instantiation "ula:balu|lpm_divide:Div0" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ula.v Line: 18
+Info (12133): Instantiated megafunction "ula:balu|lpm_divide:Div0" with the following parameter: File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ula.v Line: 18
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_hkm.tdf
+    Info (12023): Found entity 1: lpm_divide_hkm File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/lpm_divide_hkm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/sign_div_unsign_9nh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_6af.tdf
+    Info (12023): Found entity 1: alt_u_div_6af File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/alt_u_div_6af.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/add_sub_7pc.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/add_sub_8pc.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "ula:balu|lpm_divide:Mod0" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ula.v Line: 16
+Info (12133): Instantiated megafunction "ula:balu|lpm_divide:Mod0" with the following parameter: File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ula.v Line: 16
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_kcm.tdf
+    Info (12023): Found entity 1: lpm_divide_kcm File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/lpm_divide_kcm.tdf Line: 24
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following DSP element node(s):
+        Warning (14320): Synthesized away node "ula:balu|lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult7" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/mult_7dt.tdf Line: 66
+        Warning (14320): Synthesized away node "ula:balu|lpm_mult:Mult0|mult_7dt:auto_generated|mac_out8" File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/db/mult_7dt.tdf Line: 90
+Warning (12241): 9 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13014): Ignored 84 buffer(s)
+    Info (13019): Ignored 84 SOFT buffer(s)
+Warning (13012): Latch InOut:bIO|Data[6] has unsafe behavior File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ProgramCounter:bPC|PCValue[3] File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ProgramCounter.v Line: 13
+Warning (13012): Latch InOut:bIO|Data[5] has unsafe behavior File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ProgramCounter:bPC|PCValue[3] File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ProgramCounter.v Line: 13
+Warning (13012): Latch InOut:bIO|Data[4] has unsafe behavior File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ProgramCounter:bPC|PCValue[3] File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ProgramCounter.v Line: 13
+Warning (13012): Latch InOut:bIO|Data[3] has unsafe behavior File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ProgramCounter:bPC|PCValue[3] File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ProgramCounter.v Line: 13
+Warning (13012): Latch InOut:bIO|Data[2] has unsafe behavior File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ProgramCounter:bPC|PCValue[3] File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ProgramCounter.v Line: 13
+Warning (13012): Latch InOut:bIO|Data[1] has unsafe behavior File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ProgramCounter:bPC|PCValue[3] File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ProgramCounter.v Line: 13
+Warning (13012): Latch InOut:bIO|Data[0] has unsafe behavior File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/InOut.v Line: 20
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal ProgramCounter:bPC|PCValue[3] File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/ProgramCounter.v Line: 13
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Hex3[0]" is stuck at VCC File: D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.v Line: 14
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 768 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3733 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 28 output pins
+    Info (21061): Implemented 3681 logic cells
+    Info (21062): Implemented 6 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 36 warnings
+    Info: Peak virtual memory: 4837 megabytes
+    Info: Processing ended: Wed Jul 04 23:18:09 2018
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:44
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Onedrive Unifesp/OneDrive - unifesp.br/Faculdade/Laboratorio AOC/FiboRes2/ApresentacaoFibonnaci3_restored/Processador.map.smsg.
+
+
